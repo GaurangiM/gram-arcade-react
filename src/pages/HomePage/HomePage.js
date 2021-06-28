@@ -7,6 +7,7 @@ const HomePage = ()=> {
     <div>
       Home Page
       <Link to='/mario'>Mario</Link>
+      <Link to='/doodle'>Doodle</Link>
     </div>
   )
 }
