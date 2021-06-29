@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>Mario test</title>
+		<style>
+			body {
+				margin: 0;
+				overflow: hidden;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			canvas {
+				width: 800px;
+				height: 600px;
+				/* display: flex;
+				justify-content: center;
+				align-items: center; */
+			}
+
+			#top-menu {
+				width: 100%;
+				height: 70px;
+				background-color: greenyellow;
+			}
+
+			#main-div-mario {
+				display: flex;
+				justify-content: center;
+				margin-left: 300px;
+				align-items: center;
+				width: 200px;
+			}
+
+			#game-canvas {
+				margin-left: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="top-menu"></div>
+		<div id="main-div-mario">
+			<div id="game-canvas">
+				<script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
+				<script src="Mario.js"></script>
+			</div>
+		</div>
+	</body>
+</html>
