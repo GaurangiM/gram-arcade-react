@@ -15,7 +15,9 @@ kaboom({
 	CODAISSEUR LOGO<a href="https://imgbb.com/"><img src="https://i.ibb.co/LZBZBdQ/codaisseur-square.png" alt="codaisseur-square" border="0"></a>
 	JS LOGO <a href="https://imgbb.com/"><img src="https://i.ibb.co/9gKw5x1/js-logo.png" alt="js-logo" border="0"></a>
 	DB LOGO <a href="https://ibb.co/Zhv72T0"><img src="https://i.ibb.co/FBcCH7F/database-logo.png" alt="database-logo" border="0"></a>
-	*/
+	WONDER KARLA <a href="https://imgbb.com/%22%3E<img src="https://i.ibb.co/m53MVbh/Wonder-Karla.png" alt="Wonder-Karla" border="0"></a>
+  HTML LOGO <a href="https://imgbb.com/%22%3E<img src="https://i.ibb.co/hWp15d8/HTML5-Badge-svg.png" alt="HTML5-Badge-svg" border="0"></a>
+  CSS LOGO <a href="https://imgbb.com/%22%3E<img src="https://i.ibb.co/wWwCrCS/CC3-Badge.png" alt="CC3-Badge" border="0"></a>*/
 }
 
 const MOVE_SPEED = 120;
@@ -27,7 +29,7 @@ const FALL_DEATH = 400;
 
 const ENEMY_SPEED = 20;
 
-loadSprite("supermat", "https://i.ibb.co/MSYv0sW/supermat-d.png");
+loadSprite("WONDER KARLA", "https://i.ibb.co/m53MVbh/Wonder-Karla.png");
 loadSprite(
 	"evil-react",
 	"https://i.ibb.co/tmMjn9S/1-JSFjofdj-IH5-RDVf-q-OODGw.png"
@@ -38,10 +40,14 @@ loadSprite("good-react", "https://i.ibb.co/PTQStFY/reactjs-logo.png");
 loadSprite("block", "https://i.ibb.co/9gKw5x1/js-logo.png");
 loadSprite("DB-pipe", "https://i.ibb.co/FBcCH7F/database-logo.png");
 
+
+loadSprite("html-block", "https://i.ibb.co/hWp15d8/HTML5-Badge-svg.png")
+loadSprite("css-block", "https://i.ibb.co/wWwCrCS/CC3-Badge.png")
+loadSprite("surprise", "https://i.ibb.co/LZBZBdQ/codaisseur-square.png");
 loadRoot("https://i.imgur.com/");
 loadSprite("brick", "pogC9x5.png");
 
-loadSprite("surprise", "gesQ1KP.png");
+
 loadSprite("unboxed", "bdrLpi6.png");
 loadSprite("pipe-top-left", "ReTPiWY.png");
 loadSprite("pipe-top-right", "hj2GK4n.png");
@@ -52,6 +58,7 @@ loadSprite("blue-block", "fVscIbn.png");
 loadSprite("blue-brick", "3e5YRQd.png");
 loadSprite("blue-steel", "gqVoI2b.png");
 loadSprite("blue-surprise", "RMqCc1G.png");
+
 // loadSprite("evil-react", "KPO3fR9.png");
 // loadSprite("blue-evil-react", "SvV4ueD.png");
 
@@ -81,26 +88,26 @@ scene("game", ({ level, score, levelNumber }) => {
 			"                                 ",
 			"                                      ",
 			"                    ^                 ",
-			"                  =====               ",
-			"                =                     ",
-			"     %   =*=%=                        ",
+			"                  hhhh                 ",
+			"                h                     ",
+			"     %   h*h%h                        ",
 			"                                      ",
 			"                            -+        ",
 			"   p                ^   ^   ()        ",
-			"=========      ===============   =====",
-			"         ====                         ",
+			"hhhhhhhhh      hhhhhhhhhh   hhhhh",
+			"         hhhh                         ",
 		],
 		[
-			"£                                       £",
-			"£                         @@@@@@        £",
-			"£                                       £",
-			"£                @@@@@@                 £",
-			"£                                       £",
-			"£        @@@@@@              x x        £",
-			"£                          x x x        £",
-			"£                        x x x x  x   -+£",
-			"£    p           z   z  x x x x x  x   ()£",
-			"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+			"c                                        c",
+			"c                         @@@@@@        c",
+			"c                                       c",
+			"c                @@@@@@                 c",
+			"c                                       c",
+			"c        @@@@@@              x x        c",
+			"c                          x x x        c",
+			"c                        x x x x  x   -+c",
+			"c    p           z   z  x x x x x  x   ()c",
+			"cccccccccccccccccccccccccccccccccccccccccc",
 		],
 	];
 
@@ -108,12 +115,14 @@ scene("game", ({ level, score, levelNumber }) => {
 		width: 20,
 		height: 20,
 		"=": [sprite("block"), scale(0.05), solid()],
+    "h": [sprite("html-block"), scale(0.03), solid()],
+    "c": [sprite("css-block"), scale(0.03), solid()],
 		"^": [sprite("evil-react"), solid(), scale(0.08), "dangerous", body()],
 		"#": [sprite("good-react"), solid(), scale(0.05), "good-react", body()],
 		z: [sprite("evil-redux"), solid(), scale(0.05), "dangerous", body()],
 		$: [sprite("codaisseur-logo"), solid(), scale(0.04), "codaisseur-logo"],
-		"%": [sprite("surprise"), solid(), "coin-surprise"],
-		"*": [sprite("surprise"), solid(), "react-surprise"],
+		"%": [sprite("surprise"), solid(), "coin-surprise", scale(0.04)],
+		"*": [sprite("surprise"), solid(), "react-surprise", scale(0.04)],
 		"}": [sprite("unboxed"), solid()],
 		// "(": [sprite("pipe-bottom-left"), solid(), scale(0.5)],
 		// ")": [sprite("pipe-bottom-right"), solid(), scale(0.5)],
@@ -180,14 +189,37 @@ scene("game", ({ level, score, levelNumber }) => {
 	}
 
 	const player = add([
-		sprite("supermat"),
+		sprite("WONDER KARLA"),
 		solid(),
 		pos(100, 0),
 		body(),
 		big(),
 		origin("bot"),
-		scale(0.07),
+		scale(0.05),
 	]);
+
+  function respawn_evil(){
+    
+    //let level = 
+    let new_pos = rand(1, width());
+    new_pos = Math.floor(new_pos);
+
+    randomEvil = add([
+      "dangerous",
+      sprite("evil-redux"),
+      solid(),
+      pos(new_pos, 0),
+      body(),
+      scale(0.05),
+    ]);
+}
+
+const loopTime = 10 / levelNumber
+loop(loopTime, () => {
+  console.log(loopTime)
+  respawn_evil();
+  //console.log("test")
+});
 
 	player.collides("DB-pipe", () => {
 		keyPress("down", () => {
@@ -280,4 +312,4 @@ scene("lose", ({ score }) => {
 	add([text(score, 32), origin("center"), pos(width() / 2, height() / 2)]);
 });
 
-start("game", { level: 0, score: 0, levelNumber: 0 });
+start("game", { level: 0, score: 0, levelNumber: 1 });
