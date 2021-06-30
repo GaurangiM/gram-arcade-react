@@ -4,7 +4,7 @@
   overflow-y: hidden;
   font-size: 200px;
   text-align: center;
-  background-image: url("grid.jpg");
+  background-image: url("./class_background.png");
 
   /* background-color: cadetblue; */
   background-size: 500px 700px;
@@ -46,4 +46,10 @@
   background: url("google-meet-logo.png");
   background-size: 25px 25px;
   position: absolute;
+}
+@media only screen and (max-width: 1600px) {
+  .grid {
+    width: 500px;
+    height: 600px;
+  }
 }
