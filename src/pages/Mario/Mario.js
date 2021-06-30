@@ -16,8 +16,8 @@ kaboom({
 	JS LOGO <a href="https://imgbb.com/"><img src="https://i.ibb.co/9gKw5x1/js-logo.png" alt="js-logo" border="0"></a>
 	DB LOGO <a href="https://ibb.co/Zhv72T0"><img src="https://i.ibb.co/FBcCH7F/database-logo.png" alt="database-logo" border="0"></a>
 	WONDER KARLA <a href="https://imgbb.com/%22%3E<img src="https://i.ibb.co/m53MVbh/Wonder-Karla.png" alt="Wonder-Karla" border="0"></a>
-  HTML LOGO <a href="https://imgbb.com/%22%3E<img src="https://i.ibb.co/hWp15d8/HTML5-Badge-svg.png" alt="HTML5-Badge-svg" border="0"></a>
-  CSS LOGO <a href="https://imgbb.com/%22%3E<img src="https://i.ibb.co/wWwCrCS/CC3-Badge.png" alt="CC3-Badge" border="0"></a>*/
+  	HTML LOGO <a href="https://imgbb.com/%22%3E<img src="https://i.ibb.co/hWp15d8/HTML5-Badge-svg.png" alt="HTML5-Badge-svg" border="0"></a>
+  	CSS LOGO <a href="https://imgbb.com/%22%3E<img src="https://i.ibb.co/wWwCrCS/CC3-Badge.png" alt="CC3-Badge" border="0"></a>*/
 }
 
 const MOVE_SPEED = 120;
@@ -40,13 +40,11 @@ loadSprite("good-react", "https://i.ibb.co/PTQStFY/reactjs-logo.png");
 loadSprite("block", "https://i.ibb.co/9gKw5x1/js-logo.png");
 loadSprite("DB-pipe", "https://i.ibb.co/FBcCH7F/database-logo.png");
 
-
-loadSprite("html-block", "https://i.ibb.co/hWp15d8/HTML5-Badge-svg.png")
-loadSprite("css-block", "https://i.ibb.co/wWwCrCS/CC3-Badge.png")
+loadSprite("html-block", "https://i.ibb.co/hWp15d8/HTML5-Badge-svg.png");
+loadSprite("css-block", "https://i.ibb.co/wWwCrCS/CC3-Badge.png");
 loadSprite("surprise", "https://i.ibb.co/LZBZBdQ/codaisseur-square.png");
 loadRoot("https://i.imgur.com/");
 loadSprite("brick", "pogC9x5.png");
-
 
 loadSprite("unboxed", "bdrLpi6.png");
 loadSprite("pipe-top-left", "ReTPiWY.png");
@@ -54,8 +52,6 @@ loadSprite("pipe-top-right", "hj2GK4n.png");
 loadSprite("pipe-bottom-left", "c1cYSbt.png");
 loadSprite("pipe-bottom-right", "nqQ79eI.png");
 
-loadSprite("blue-block", "fVscIbn.png");
-loadSprite("blue-brick", "3e5YRQd.png");
 loadSprite("blue-steel", "gqVoI2b.png");
 loadSprite("blue-surprise", "RMqCc1G.png");
 
@@ -71,17 +67,17 @@ scene("game", ({ level, score, levelNumber }) => {
 			"                                                                                            ",
 			"                                                                                            ",
 			"                                                                                            ",
-			"                                                                                           ",
-			"             %*      **                                                                      ",
-			"      p       ^                  ^                                                             ",
+			"                      *%                            %                                          ",
+			"      p       %                              *                          %                      ",
+			"             ^                  ^                                                             ",
 			"     ===    ====    ====       ==      =   ===    ===    ==%*   =    =  ===                        ",
 			"   ==      =    =   =  ==     =  =        =   =  =   =   =      =    =  =  =                       ",
 			"   =      =      =  =   =     =  =     =  =      =       =      =    =  =   =                      ",
 			"  =       =      =  =    =   =    =    =   =      =      =      =    =  =   =                      ",
 			"  =       =      =  =    =   ======    =    ==     ==    =*=%   =    =  ====                       ",
 			"  =       =      =  =    =  =      =   =      =      =   =      =  z =  =  =                       ",
-			"   = ^    =      =  =   =   =      =   =       =      =  =      =    =  =   =         -+           ",
-			"   ==      =  z =   =  ==  =        =  =  =   =   =  =   =       =  =   =   =         ()           ",
+			"   = ^    =      =  =   =   =      =   =       =      =  =      =    =  =   =     %              ",
+			"   ==      =  z =   =  ==  =        =  =  =   =   =  =   =       =  =   =   =         p           ",
 			"     ===    ====    ====   =        =  =   ===     ===   =====    ==    =    =  ========           ",
 		],
 		[
@@ -92,8 +88,8 @@ scene("game", ({ level, score, levelNumber }) => {
 			"                h                     ",
 			"     %   h*h%h                        ",
 			"                                      ",
-			"                            -+        ",
-			"   p                ^   ^   ()        ",
+			"   p                                   ",
+			"                   ^   ^       p    ",
 			"hhhhhhhhh      hhhhhhhhhh   hhhhh",
 			"         hhhh                         ",
 		],
@@ -105,8 +101,8 @@ scene("game", ({ level, score, levelNumber }) => {
 			"c                                       c",
 			"c        @@@@@@              x x        c",
 			"c                          x x x        c",
-			"c                        x x x x  x   -+c",
-			"c    p           z   z  x x x x x  x   ()c",
+			"c    p                    x x x x  x     c",
+			"c               z   z  x x x x x  x   p c",
 			"cccccccccccccccccccccccccccccccccccccccccc",
 		],
 	];
@@ -115,23 +111,18 @@ scene("game", ({ level, score, levelNumber }) => {
 		width: 20,
 		height: 20,
 		"=": [sprite("block"), scale(0.05), solid()],
-    "h": [sprite("html-block"), scale(0.03), solid()],
-    "c": [sprite("css-block"), scale(0.03), solid()],
+		h: [sprite("html-block"), scale(0.03), solid()],
+		c: [sprite("css-block"), scale(0.04), solid()],
 		"^": [sprite("evil-react"), solid(), scale(0.08), "dangerous", body()],
 		"#": [sprite("good-react"), solid(), scale(0.05), "good-react", body()],
-		z: [sprite("evil-redux"), solid(), scale(0.05), "dangerous", body()],
+		z: [sprite("evil-redux"), solid(), scale(0.03), "dangerous", body()],
 		$: [sprite("codaisseur-logo"), solid(), scale(0.04), "codaisseur-logo"],
-		"%": [sprite("surprise"), solid(), "coin-surprise", scale(0.04)],
+		"%": [sprite("surprise"), solid(), "CD-surprise", scale(0.04)],
 		"*": [sprite("surprise"), solid(), "react-surprise", scale(0.04)],
 		"}": [sprite("unboxed"), solid()],
-		// "(": [sprite("pipe-bottom-left"), solid(), scale(0.5)],
-		// ")": [sprite("pipe-bottom-right"), solid(), scale(0.5)],
-		// "-": [sprite("pipe-top-left"), solid(), scale(0.5), "pipe"],
-		// "+": [sprite("pipe-top-right"), solid(), scale(0.5), "pipe"],
-		"!": [sprite("blue-block"), solid(), scale(0.5)],
-		"£": [sprite("blue-brick"), solid(), scale(0.5)],
-		"@": [sprite("blue-surprise"), solid(), scale(0.5), "coin-surprise"],
-		p: [sprite("DB-pipe"), solid(), scale(0.04), "DB-pipe"],
+
+		"@": [sprite("blue-surprise"), solid(), scale(0.5), "CD-surprise"],
+		p: [sprite("DB-pipe"), solid(), scale(0.05), "DB-pipe"],
 		x: [sprite("blue-steel"), solid(), scale(0.5)],
 	};
 
@@ -175,13 +166,13 @@ scene("game", ({ level, score, levelNumber }) => {
 				return isBig;
 			},
 			smallify() {
-				this.scale = vec2(0.07);
+				this.scale = vec2(0.04);
 				CURRENT_JUMP_FORCE = JUMP_FORCE;
 				timer = 0;
 				isBig = false;
 			},
 			biggify(time) {
-				this.scale = vec2(0.14);
+				this.scale = vec2(0.08);
 				timer = time;
 				isBig = true;
 			},
@@ -195,31 +186,30 @@ scene("game", ({ level, score, levelNumber }) => {
 		body(),
 		big(),
 		origin("bot"),
-		scale(0.05),
+		scale(0.04),
 	]);
 
-  function respawn_evil(){
-    
-    //let level = 
-    let new_pos = rand(1, width());
-    new_pos = Math.floor(new_pos);
+	function respawn_evil() {
+		//let level =
+		let new_pos = rand(1, width());
+		new_pos = Math.floor(new_pos);
 
-    randomEvil = add([
-      "dangerous",
-      sprite("evil-redux"),
-      solid(),
-      pos(new_pos, 0),
-      body(),
-      scale(0.05),
-    ]);
-}
+		randomEvil = add([
+			"dangerous",
+			sprite("evil-redux"),
+			solid(),
+			pos(new_pos, 0),
+			body(),
+			scale(0.05),
+		]);
+	}
 
-const loopTime = 10 / levelNumber
-loop(loopTime, () => {
-  console.log(loopTime)
-  respawn_evil();
-  //console.log("test")
-});
+	const loopTime = 10 / levelNumber;
+	loop(loopTime, () => {
+		console.log(loopTime);
+		respawn_evil();
+		//console.log("test")
+	});
 
 	player.collides("DB-pipe", () => {
 		keyPress("down", () => {
@@ -238,7 +228,7 @@ loop(loopTime, () => {
 	});
 
 	player.on("headbump", (obj) => {
-		if (obj.is("coin-surprise")) {
+		if (obj.is("CD-surprise")) {
 			gameLevel.spawn("$", obj.gridPos.sub(0, 1));
 			destroy(obj);
 			gameLevel.spawn("}", obj.gridPos.sub(0, 0));
@@ -271,11 +261,12 @@ loop(loopTime, () => {
 	player.collides("dangerous", (d) => {
 		if (isJumping) {
 			camShake(20);
+			scoreLabel.value++;
+			scoreLabel.text = scoreLabel.value;
 			destroy(d);
 		} else {
 			go("lose", { score: scoreLabel.value });
 			console.log("scoreLabel.value", scoreLabel.value);
-			// console.log("score", score);
 		}
 	});
 
